@@ -1,17 +1,23 @@
 ---
 title: Git & Vercel – vom ersten Commit zum Live-Deployment
-description: Ein Tutorial für Einsteiger:innen. Lerne Git kennen und bring deine erste Webseite mit Astro und Vercel online.
+description: Lerne, wie man mit KI Webseiten entwickelt – mit Claude Code, Git, Astro und Vercel.
 ---
 
 # Git & Vercel – vom ersten Commit zum Live-Deployment
 
-Du willst lernen, wie man mit Git arbeitet und eine eigene Webseite ins Internet bringt? Dann bist du hier richtig.
+Dieses Tutorial bringt dir bei, wie man Webseiten wie ein Profi entwickelt und online stellt.
 
-In diesem Tutorial richtest du Schritt für Schritt alles ein, was du brauchst, lernst die Grundlagen von Git und veröffentlichst am Ende deine erste eigene Webseite – automatisch bei jeder Änderung.
+Am Anfang wird es etwas zäh. Wir installieren einige Tools und müssen uns dann mit Git beschäftigen. Spätestens wenn es um Branches geht, wird das etwas kompliziert und langatmig. Aber wir brauchen diese Basics für Teil 3, in dem wir die eigentliche Webseite erstellen.
+
+Ab da wird es dann richtig Spaß machen. Du fühlst dich danach wie ein Superheld, der innerhalb von Minuten schafft, wofür Softwareentwickler früher Stunden oder Tage gebraucht haben.
 
 ## Für wen ist dieses Tutorial?
 
-Für alle, die noch nie oder nur wenig mit Git und dem Terminal gearbeitet haben. Du brauchst kein Vorwissen in Programmierung. Du solltest aber wissen, wie man Programme installiert und mit Dateien und Ordnern umgeht.
+Das Tutorial richtet sich in erster Linie an alle, die wissen wollen, wie man mit KI Webseiten entwickelt. Mit den Werkzeugen, die wir dafür verwenden, brauchen wir auch Git. Deshalb bringt dir das Tutorial auch Git bei.
+
+Wer Git schon kennt, kann [Teil 2](/teil-2/) überspringen.
+
+Du brauchst kein Vorwissen in Programmierung. Du solltest aber wissen, wie man Programme installiert und mit Dateien und Ordnern umgeht.
 
 ## Was du brauchst
 
@@ -33,13 +39,6 @@ Du lernst, was ein Commit ist und wie du im Terminal und in VS Code committest. 
 ### [Teil 3 – Astro & Vercel](/teil-3/)
 
 Du erstellst dein erstes Astro-Projekt, lädst es auf GitHub hoch und verbindest es mit Vercel. Ab dann geht jede Änderung, die du pushst, automatisch online.
-
-## So benutzt du dieses Tutorial
-
-- Arbeite die Teile **der Reihe nach** durch. Jeder Teil baut auf dem vorherigen auf.
-- **Mach alles selbst mit.** Lesen allein reicht nicht – Git lernt man durch Ausprobieren.
-- Befehle in grauen Kästen tippst du in das Terminal ein. Alles nach einem `#` ist ein Kommentar und muss nicht abgetippt werden.
-- Fehler sind normal. Achte auf die Abschnitte **„Häufiger Fehler"** – dort findest du Lösungen für typische Probleme.
 
 ## Diese Seite ist selbst ein Beispiel
 

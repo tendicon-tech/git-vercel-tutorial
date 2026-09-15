@@ -392,7 +392,7 @@ In diesem Tutorial – und später bei unserer Webseite – arbeiten wir mit gen
 
 | Branch | Bedeutung | Wofür? |
 |---|---|---|
-| `main` | **Unser Produktivsystem** | Hier liegt die **Live-Seite**, die unsere Nutzer:innen gerade benutzen. |
+| `main` | **Unser Produktivsystem** | Hier liegt die **Live-Seite**, die unsere Nutzer gerade benutzen. |
 | `staging` | **Unser Testsystem** | Hier **bereiten wir die neue Version vor**. Neue Funktionen bauen und testen wir hier, bis alles passt. |
 
 ```
@@ -407,7 +407,7 @@ Stell dir folgende Situation vor:
 
 Du arbeitest gerade in `staging` an der neuen Version der Webseite. Die Hälfte ist fertig, der Rest noch eine Baustelle. Da meldet sich jemand: **Auf der Live-Seite ist ein Fehler!**
 
-Hättest du nur einen einzigen Branch, hättest du jetzt ein Problem: Entweder du veröffentlichst die Korrektur zusammen mit deiner halbfertigen neuen Version – oder die Nutzer:innen müssen mit dem Fehler leben, bis alles fertig ist.
+Hättest du nur einen einzigen Branch, hättest du jetzt ein Problem: Entweder du veröffentlichst die Korrektur zusammen mit deiner halbfertigen neuen Version – oder die Nutzer müssen mit dem Fehler leben, bis alles fertig ist.
 
 Mit zwei Branches ist das kein Problem:
 
@@ -520,7 +520,7 @@ Wechsle jetzt ins Produktivsystem und behalte dabei den Explorer von VS Code im 
 git switch main
 ```
 
-Die Dateien `kontakt.txt` und `galerie.txt` sind **verschwunden**! Keine Sorge – sie existieren nur im Testsystem `staging`. Das Produktivsystem ist unverändert, unsere Nutzer:innen sehen die neuen Dateien also noch nicht. Wechsle zurück:
+Die Dateien `kontakt.txt` und `galerie.txt` sind **verschwunden**! Keine Sorge – sie existieren nur im Testsystem `staging`. Das Produktivsystem ist unverändert, unsere Nutzer sehen die neuen Dateien also noch nicht. Wechsle zurück:
 
 ```bash
 git switch staging
@@ -752,7 +752,7 @@ Fast-forward
 
 Git meldet **Fast-forward**: Auf `main` ist seit dem letzten Merge nichts Neues passiert – der Hotfix ist ja schon in `staging` enthalten. Git muss also nichts zusammenführen und schiebt `main` einfach nach vorne. Produktivsystem und Testsystem sind jetzt identisch, und die neue Version ist live.
 
-> **Achtung:** Prüfe vor diesem Schritt in der Statusleiste, dass du wirklich auf `main` bist, und merge nur, wenn in `staging` alles fertig getestet ist. Alles, was du jetzt nach `main` bringst, sehen deine Nutzer:innen.
+> **Achtung:** Prüfe vor diesem Schritt in der Statusleiste, dass du wirklich auf `main` bist, und merge nur, wenn in `staging` alles fertig getestet ist. Alles, was du jetzt nach `main` bringst, sehen deine Nutzer.
 
 > **Mit der KI mergen:** Gerade beim Mergen musst du dir die Befehle nicht merken. Wenn du unsicher bist oder Konflikte vermutest, starte Claude Code im Terminal mit `claude` und gib zum Beispiel ein:
 >

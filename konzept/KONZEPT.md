@@ -2,13 +2,13 @@
 
 ## 1. Ziel & Idee
 
-Eine Tutorial-Webseite, die Einsteiger:innen Schritt für Schritt erklärt,
+Eine Tutorial-Webseite, die Einsteiger Schritt für Schritt erklärt,
 
 1. wie sie ihre Entwicklungsumgebung unter Windows einrichten,
 2. wie Git funktioniert (Commits, Branches, Remotes, Merges, Konflikte) und
 3. wie sie ein Astro-Projekt über GitHub automatisch auf Vercel deployen.
 
-**Besonderheit:** Die Webseite ist selbst mit genau diesem Stack gebaut (Astro → GitHub → Vercel). Das Repository ist **öffentlich** – Leser:innen können den Quellcode der Seite ansehen, forken und den im Tutorial beschriebenen Workflow direkt nachvollziehen.
+**Besonderheit:** Die Webseite ist selbst mit genau diesem Stack gebaut (Astro → GitHub → Vercel). Das Repository ist **öffentlich** – Leser können den Quellcode der Seite ansehen, forken und den im Tutorial beschriebenen Workflow direkt nachvollziehen.
 
 ## 2. Zielgruppe
 
@@ -18,7 +18,7 @@ Eine Tutorial-Webseite, die Einsteiger:innen Schritt für Schritt erklärt,
 
 ## 3. Lernergebnis
 
-Nach dem Tutorial können Leser:innen:
+Nach dem Tutorial können Leser:
 
 - VS Code, Node.js, Git (inkl. Git Bash) und Claude Code installieren und nutzen
 - Commits im Terminal und in VS Code erstellen
@@ -186,7 +186,7 @@ Kurze Erklärung jedes Werkzeugs in einem Satz:
 
 #### 2.3 Was ist ein Commit?
 - Ein Commit = gespeicherter Schnappschuss des Projekts zu einem Zeitpunkt
-- Bestandteile: eindeutige ID (Hash), Autor:in, Datum, Nachricht, Verweis auf Vorgänger-Commit
+- Bestandteile: eindeutige ID (Hash), Autor, Datum, Nachricht, Verweis auf Vorgänger-Commit
 - Visualisierung als Kette von Commits
 - Gute Commit-Messages: kurz, im Imperativ, beschreibt *was* und *warum* (Beispiele gut/schlecht)
 - Wie groß sollte ein Commit sein? („eine logische Änderung pro Commit")

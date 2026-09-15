@@ -233,7 +233,7 @@ Klicke auf **Continue to Dashboard**. Unter **Domains** findest du die Adresse d
 https://mein-astro-projekt.vercel.app
 ```
 
-Öffne sie – **deine Webseite ist online!** Du kannst den Link jetzt an Freund:innen schicken und auf dem Handy öffnen.
+Öffne sie – **deine Webseite ist online!** Du kannst den Link jetzt an Freunde schicken und auf dem Handy öffnen.
 
 > **Hinweis:** Ist der Name bereits vergeben, hängt Vercel automatisch etwas an die Adresse an, z. B. `mein-astro-projekt-abc123.vercel.app`.
 
@@ -265,7 +265,7 @@ Jeder Push auf `main` erzeugt ein **Production Deployment** – also eine Aktual
 
 ### Schritt 2: Das Testsystem staging anlegen
 
-Deine Seite ist jetzt live. Ab hier arbeiten wir wie in Teil 2: Neue Änderungen entstehen im Testsystem `staging` und kommen erst nach `main`, wenn sie fertig sind. So sehen deine Nutzer:innen nie eine halbfertige Version.
+Deine Seite ist jetzt live. Ab hier arbeiten wir wie in Teil 2: Neue Änderungen entstehen im Testsystem `staging` und kommen erst nach `main`, wenn sie fertig sind. So sehen deine Nutzer nie eine halbfertige Version.
 
 1. Klicke unten links in der Statusleiste auf `main` und wähle **Create new branch...**.
 2. Gib `staging` ein und drücke Enter.
@@ -275,7 +275,7 @@ Vercel behandelt die beiden Branches automatisch unterschiedlich:
 
 | Push auf … | Deployment-Art | Wo zu sehen? |
 |---|---|---|
-| `main` | **Production Deployment** | Deine echte Adresse, z. B. `mein-astro-projekt.vercel.app` – das sehen deine Nutzer:innen |
+| `main` | **Production Deployment** | Deine echte Adresse, z. B. `mein-astro-projekt.vercel.app` – das sehen deine Nutzer |
 | `staging` | **Preview Deployment** | Eine eigene Vorschau-Adresse zum Testen – die echte Seite bleibt unverändert |
 
 ```
