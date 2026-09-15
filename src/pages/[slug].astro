@@ -1,0 +1,80 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import { parts } from '../lib/parts';
+
+export function getStaticPaths() {
+  return parts.map((part) => ({ params: { slug: part.slug } }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntry('inhalte', slug);
+if (!entry) throw new Error(`Inhalt "${slug}" fehlt.`);
+
+const { Content, headings } = await render(entry);
+
+const index = parts.findIndex((part) => part.slug === slug);
+const part = parts[index];
+const prev = parts[index - 1];
+const next = parts[index + 1];
+
+// "Teil 1 – Einrichtung der Entwicklungsumgebung" → "Einrichtung der Entwicklungsumgebung"
+const heading = entry.data.title.split(' – ').slice(1).join(' – ') || entry.data.title;
+const toc = headings.filter((h) => h.depth === 2);
+---
+
+<Base title={entry.data.title} description={entry.data.description}>
+  <section class="part-hero">
+    <div class="part-number" aria-hidden="true">{part.number}</div>
+    <h1 class="part-title">{heading}</h1>
+  </section>
+
+  <main class="page page-part">
+    <aside class="toc">
+      <nav aria-label="Inhalt dieser Seite">
+        <ol>
+          {
+            toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+    </aside>
+
+    <article class="prose">
+      <Content />
+    </article>
+  </main>
+
+  <nav class="pager" aria-label="Weiter und zurück">
+    {
+      prev ? (
+        <a class="pager-link pager-prev" href={`/${prev.slug}/`}>
+          <span class="pager-direction">Zurück</span>
+          <span class="pager-label">{prev.number} {prev.label}</span>
+        </a>
+      ) : (
+        <a class="pager-link pager-prev" href="/">
+          <span class="pager-direction">Zurück</span>
+          <span class="pager-label">Startseite</span>
+        </a>
+      )
+    }
+    {
+      next ? (
+        <a class="pager-link pager-next" href={`/${next.slug}/`}>
+          <span class="pager-direction">Weiter</span>
+          <span class="pager-label">{next.number} {next.label}</span>
+        </a>
+      ) : (
+        <a class="pager-link pager-next" href="/">
+          <span class="pager-direction">Geschafft</span>
+          <span class="pager-label">Zur Startseite</span>
+        </a>
+      )
+    }
+  </nav>
+</Base>

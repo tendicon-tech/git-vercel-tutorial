@@ -370,7 +370,7 @@ Schlägt ein Deployment fehl, bekommst du eine E-Mail von Vercel und das Deploym
 > Der Entwicklungsserver läuft bereits in einem anderen Terminal. Beende ihn dort mit **Strg + C** oder nutze die Adresse, die Astro dir stattdessen anzeigt (z. B. Port `4322`).
 
 > **Häufiger Fehler:** `npm: command not found` bzw. `bash: npm: command not found`
-> Node.js ist nicht installiert oder das Terminal wurde seit der Installation nicht neu gestartet. Siehe [Teil 1, Abschnitt 1.5](/teil-1/#node-js-installieren).
+> Node.js ist nicht installiert oder das Terminal wurde seit der Installation nicht neu gestartet. Siehe [Teil 1, Abschnitt 1.5](/teil-1/#15-nodejs-installieren).
 
 ### Zurück zu einer früheren Version: Rollback
 

@@ -1,0 +1,50 @@
+---
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+import '../styles/global.css';
+import { parts } from '../lib/parts';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="/">Git&nbsp;&amp;&nbsp;Vercel</a>
+      <nav class="site-nav" aria-label="Tutorial">
+        {
+          parts.map((part) => (
+            <a
+              href={`/${part.slug}/`}
+              aria-current={currentPath === `/${part.slug}` ? 'page' : undefined}
+            >
+              <span class="nav-number">{part.number}</span>
+              {part.label}
+            </a>
+          ))
+        }
+      </nav>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <span>Git &amp; Vercel – vom ersten Commit zum Live-Deployment</span>
+      <a href="https://github.com/">Quellcode auf GitHub</a>
+    </footer>
+  </body>
+</html>

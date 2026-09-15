@@ -1,0 +1,26 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const entry = await getEntry('inhalte', 'startseite');
+if (!entry) throw new Error('Inhalt "startseite" fehlt.');
+
+const { Content } = await render(entry);
+---
+
+<Base title={entry.data.title} description={entry.data.description}>
+  <section class="hero">
+    <div class="hero-shape" aria-hidden="true"></div>
+    <div class="hero-block" aria-hidden="true"></div>
+    <h1 class="hero-title">
+      Vom ersten Commit<br />zum Live-<wbr />Deployment.
+    </h1>
+    <p class="hero-lead">{entry.data.description}</p>
+  </section>
+
+  <main class="page page-home">
+    <article class="prose">
+      <Content />
+    </article>
+  </main>
+</Base>
