@@ -73,7 +73,7 @@ git-vercel-tutorial/
 
 Alles rein statisch – **keine interaktiven Elemente** (kein Kopier-Button, keine Tabs, kein Quiz, kein gespeicherter Fortschritt).
 
-- **Ziel der Lektion** (1–2 Sätze) und geschätzte Dauer
+- **Ziel der Lektion** (1–2 Sätze)
 - **Voraussetzungen** (Link auf vorherige Lektion)
 - **Code-Blöcke** mit Syntax-Hervorhebung
 - **Hinweise** als einfach gestaltete Absätze: Tipp, Achtung, Häufiger Fehler
@@ -348,7 +348,8 @@ npm run dev
 - **Terminal und VS Code parallel** zeigen, damit beide Wege verstanden werden
 - **Screenshots** zu jedem wichtigen Schritt, damit man nie raten muss, wo man klicken soll
 - **Diagramme** für abstrakte Git-Konzepte (Commits, Branches, Merges als Graphen)
-- **Kurze Seiten** (5–15 Minuten pro Lektion)
+- **Kurze, übersichtliche Abschnitte**, die man gut in Etappen durcharbeiten kann
+- **Keine Zeitangaben**, um niemanden abzuschrecken
 - **Fehler normalisieren**: Abschnitte „Häufiger Fehler" mit konkreten Fehlermeldungen und Lösungen
 - **Einfache Sprache**, Fachbegriffe direkt im Text beim ersten Auftreten erklären
 
