@@ -24,7 +24,7 @@ Du brauchst kein Vorwissen in Programmierung. Du solltest aber wissen, wie man P
 - einen Computer mit **Windows 10 oder 11**
 - eine Internetverbindung
 - eine E-Mail-Adresse für die Registrierung bei GitHub, Vercel und Claude
-- Wir nutzen für die Entwicklung der Webseite Claude Code. Dies kostet ca. 20€ pro Monat. Wir können es aber jederzeit kündigen.
+- Wir nutzen für die Entwicklung der Webseite Claude Code. Dies kostet ca. 20€ pro Monat. Wir können es aber jederzeit kündigen. Alternativ reicht auch ein ChatGPT-Abo – dann arbeitest du statt mit Claude Code mit **Codex**. Die Screenshots zeigen Claude Code, der Ablauf ist aber derselbe.
 
 ## Was du lernst
 
