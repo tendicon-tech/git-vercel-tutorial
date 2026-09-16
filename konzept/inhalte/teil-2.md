@@ -32,6 +32,28 @@ Genau diese Probleme löst **Git**. Git ist wie eine **Zeitmaschine für dein Pr
 - Du kannst zu jedem früheren Stand zurückkehren.
 - Mehrere Personen können gleichzeitig am selben Projekt arbeiten, ohne sich gegenseitig Dateien zu überschreiben.
 
+### Aber warum brauchen *wir* Git wirklich?
+
+Bis hierhin klingt Git nach „praktisch, aber nicht nötig". Du arbeitest ja allein an einer kleinen Webseite. Für das, was wir in Teil 3 machen, geht es ohne Git aber nicht. Drei Gründe:
+
+**1. Ohne Git kommt deine Webseite nicht ins Internet.**
+
+Damit deine Seite für alle erreichbar ist, muss sie auf einem Computer liegen, der immer läuft. Diesen Computer stellt uns Vercel zur Verfügung. Vercel hat aber keinen Knopf, mit dem du deine Dateien hochlädst. Vercel holt sich die Dateien selbst – und zwar bei GitHub (was GitHub genau ist, klären wir gleich im nächsten Abschnitt). Deine Webseite muss also erst zu GitHub. Und dafür brauchst du Git.
+
+Das ist übrigens kein Versehen, sondern Absicht: Unter Softwareentwicklern ist Git so selbstverständlich wie ein Textverarbeitungsprogramm im Büro. Niemand dort würde Dateien von Hand hochladen wollen. Deshalb hat Vercel sich einen Upload-Knopf gar nicht erst gebaut.
+
+**2. Git ist dein Rückwärtsgang.**
+
+Wenn du Claude Code beschreibst, was du möchtest, ändert es oft viele Dateien auf einmal. Manchmal gefällt dir das Ergebnis dann nicht. Ohne Git kommst du jetzt nicht mehr zurück – die alte Fassung ist überschrieben. Mit Git dagegen ist jeder Stand gespeichert: Du siehst genau, was geändert wurde, und holst dir den letzten guten Stand zurück. Deshalb kannst du beim Ausprobieren nichts kaputt machen.
+
+**3. Git trennt „ausprobieren" von „für alle sichtbar".**
+
+Sobald deine Seite im Internet steht, sehen alle sofort jede Änderung – auch eine halbfertige. Mit Git kannst du in Ruhe an einer neuen Fassung arbeiten, während im Internet weiter die alte steht. Du siehst dir die neue Fassung erst selbst an, und erst wenn sie dir gefällt, ersetzt sie die alte. Wie das geht, lernst du später in diesem Teil.
+
+---
+
+## 2.2 Grundbegriffe
+
 ### Git oder GitHub?
 
 Die beiden Begriffe werden oft verwechselt:
@@ -43,10 +65,6 @@ Die beiden Begriffe werden oft verwechselt:
 | **Wofür?** | Versionsverwaltung | Git-Projekte online speichern, teilen und gemeinsam bearbeiten |
 
 Git funktioniert auch komplett ohne GitHub. GitHub ist aber ohne Git nutzlos.
-
----
-
-## 2.2 Grundbegriffe
 
 ### Repository
 
