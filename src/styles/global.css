@@ -546,7 +546,19 @@ a {
   padding: 0;
   border: none;
   background: none;
-  cursor: zoom-in;
+  cursor: default;
+}
+
+/* Der Button ist auf schmalen Bildschirmen deaktiviert – das Bild bleibt trotzdem normal sichtbar. */
+.prose button.zoom:disabled {
+  opacity: 1;
+}
+
+/* Vergrößern erst, wenn neben dem Inhalt Platz ist – gleicher Haltepunkt wie beim Inhaltsverzeichnis. */
+@media (min-width: 64rem) {
+  .prose button.zoom:not(:disabled) {
+    cursor: zoom-in;
+  }
 }
 
 .prose img {

@@ -51,7 +51,9 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
       const lightboxImage = lightbox?.querySelector('img');
 
       if (lightbox instanceof HTMLDialogElement && lightboxImage instanceof HTMLImageElement) {
-        for (const zoom of document.querySelectorAll('.prose button.zoom')) {
+        const zooms = document.querySelectorAll<HTMLButtonElement>('.prose button.zoom');
+
+        for (const zoom of zooms) {
           zoom.addEventListener('click', () => {
             const image = zoom.querySelector('img');
             if (!(image instanceof HTMLImageElement)) return;
@@ -62,6 +64,18 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
         }
 
         lightbox.addEventListener('click', () => lightbox.close());
+
+        // Auf schmalen Bildschirmen bringt das Vergrößern nichts: Das Bild füllt
+        // dort ohnehin die ganze Breite. Gleicher Haltepunkt wie beim Inhaltsverzeichnis.
+        const wide = window.matchMedia('(min-width: 64rem)');
+
+        const syncZoom = () => {
+          for (const zoom of zooms) zoom.disabled = !wide.matches;
+          if (!wide.matches) lightbox.close();
+        };
+
+        wide.addEventListener('change', syncZoom);
+        syncZoom();
       }
     </script>
 
@@ -99,7 +113,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
     <footer class="site-footer">
       <span>Git &amp; Vercel – vom ersten Commit zum Live-Deployment</span>
-      <a href="https://github.com/">Quellcode auf GitHub</a>
+      <a href="https://github.com/tendicon-tech/git-vercel-tutorial">Quellcode auf GitHub</a>
     </footer>
   </body>
 </html>

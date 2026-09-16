@@ -21,7 +21,7 @@ Das Gegenstück sind **Anwendungen**, bei denen die **Funktion** im Mittelpunkt 
 
 Die Grenze ist fließend, und auch mit Astro kannst du einzelne interaktive Bereiche einbauen. Für unsere Webseite ist es genau das Richtige. Wie Astro im Detail funktioniert, musst du übrigens nicht wissen – den Code schreibt Claude Code für dich.
 
-> **Hinweis:** Diese Tutorial-Seite ist selbst ein Astro-Projekt. Schau dir den [Quellcode auf GitHub](https://github.com/) an, wenn du sehen willst, wie sie aufgebaut ist.
+> **Hinweis:** Diese Tutorial-Seite ist selbst ein Astro-Projekt. Schau dir den [Quellcode auf GitHub](https://github.com/tendicon-tech/git-vercel-tutorial) an, wenn du sehen willst, wie sie aufgebaut ist.
 
 ---
 

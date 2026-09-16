@@ -44,6 +44,6 @@ Du erstellst dein erstes Astro-Projekt, lädst es auf GitHub hoch und verbindest
 
 Diese Tutorial-Seite wurde genau so gebaut, wie du es hier lernst: Sie ist ein **Astro-Projekt**, liegt **öffentlich auf GitHub** und wird bei jeder Änderung automatisch über **Vercel** veröffentlicht.
 
-Schau dir den Quellcode gerne an: [github.com/…/git-vercel-tutorial](https://github.com/)
+Schau dir den Quellcode gerne an: [github.com/tendicon-tech/git-vercel-tutorial](https://github.com/tendicon-tech/git-vercel-tutorial)
 
 [Los geht's mit Teil 1 →](/teil-1/)
