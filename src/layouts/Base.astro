@@ -24,7 +24,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="/">Git&nbsp;&amp;&nbsp;Vercel</a>
+      <a class="wordmark" href="/">Das&nbsp;KI-Web-Tutorial</a>
       <nav class="site-nav" aria-label="Tutorial">
         {
           parts.map((part) => (
@@ -41,6 +41,38 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
     </header>
 
     <slot />
+
+    <script>
+      const blocks = document.querySelectorAll(
+        '.prose pre[data-language="bash"], .prose pre[data-language="powershell"]',
+      );
+
+      for (const pre of blocks) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block';
+        pre.replaceWith(wrapper);
+        wrapper.append(pre);
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'copy-button';
+        button.textContent = 'Kopieren';
+        wrapper.append(button);
+
+        let reset = 0;
+        button.addEventListener('click', async () => {
+          const text = pre.textContent ?? '';
+          try {
+            await navigator.clipboard.writeText(text.trim());
+            button.textContent = 'Kopiert';
+          } catch {
+            button.textContent = 'Nicht möglich';
+          }
+          clearTimeout(reset);
+          reset = setTimeout(() => (button.textContent = 'Kopieren'), 2000);
+        });
+      }
+    </script>
 
     <footer class="site-footer">
       <span>Git &amp; Vercel – vom ersten Commit zum Live-Deployment</span>

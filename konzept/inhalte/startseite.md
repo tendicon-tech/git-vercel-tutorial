@@ -9,7 +9,7 @@ Dieses Tutorial bringt dir bei, wie man Webseiten wie ein Profi entwickelt und o
 
 Am Anfang wird es etwas zäh. Wir installieren einige Tools und müssen uns dann mit Git beschäftigen. Spätestens wenn es um Branches geht, wird das etwas kompliziert und langatmig. Aber wir brauchen diese Basics für Teil 3, in dem wir die eigentliche Webseite erstellen.
 
-Ab da wird es dann richtig Spaß machen. Du fühlst dich danach wie ein Superheld, der innerhalb von Minuten schafft, wofür Softwareentwickler früher Stunden oder Tage gebraucht haben.
+Für Teil 3 verspreche ich dir, dass du dich wie ein Superheld fühlen wirst. Innerhalb von Minuten wirst du schaffen, wofür Softwareentwickler früher Stunden oder Tage gebraucht haben.
 
 ## Für wen ist dieses Tutorial?
 

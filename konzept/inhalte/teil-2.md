@@ -56,7 +56,7 @@ Ein **Repository** (kurz: **Repo**) ist ein Projektordner, dessen Änderungen vo
 
 ### Die drei Bereiche
 
-Git arbeitet mit drei Bereichen. Das ist das wichtigste Konzept dieses Kapitels:
+Git arbeitet mit drei Bereichen:
 
 ```
  Arbeitsverzeichnis        Staging-Area              Repository
@@ -167,6 +167,8 @@ Alle Befehle in diesem Abschnitt tippst du in das Terminal unten in VS Code.
 git init
 ```
 
+![Terminal in VS Code mit dem eingetippten Befehl „git init"](/images/teil-2/02-git-init.png)
+
 ```
 Initialized empty Git repository in C:/Users/DeinName/projekte/git-uebung/.git/
 ```
@@ -205,6 +207,9 @@ Git hat die neue Datei bemerkt, verfolgt sie aber noch nicht – sie ist **untra
 
 ```bash
 git add notizen.txt
+```
+
+```bash
 git status
 ```
 
@@ -264,6 +269,9 @@ Committe die Änderung:
 
 ```bash
 git add notizen.txt
+```
+
+```bash
 git commit -m "Zweite Zeile ergänzen"
 ```
 
@@ -320,19 +328,22 @@ Links in der Aktivitätsleiste erscheint beim **Source Control**-Symbol eine kle
 
 ### Änderungen ansehen
 
-1. Klicke auf **Source Control**.
-2. Unter **Changes** siehst du `notizen.txt`.
-3. Klicke auf die Datei. VS Code zeigt links die alte und rechts die neue Version. Neue Zeilen sind grün markiert.
+1. Klicke auf **Source Control**. Unter **Changes** siehst du `notizen.txt`.
 
-![Source-Control-Ansicht in VS Code mit geöffneter Diff-Ansicht von notizen.txt](/images/teil-2/02-vscode-diff.png)
+![Source-Control-Ansicht in VS Code mit der geänderten Datei notizen.txt unter „Changes"](/images/teil-2/03-vscode-diff.png)
+
+2. Klicke auf die Datei. VS Code zeigt links die alte und rechts die neue Version. Neue Zeilen sind grün markiert.
+
+![Diff-Ansicht in VS Code: links die alte Version, rechts die neue mit grün markierter Zeile](/images/teil-2/04-vscode-diff-ansicht.png)
 
 ### Stagen und committen
 
 1. Fahre mit der Maus über die Datei und klicke auf das **+** (**Stage Changes**). Die Datei wandert in den Bereich **Staged Changes**.
+
+![Source-Control-Ansicht mit der Datei notizen.txt unter „Staged Changes"](/images/teil-2/05-vscode-stage-commit.png)
+
 2. Gib oben in das Feld **Message** eine Commit-Nachricht ein: `Dritte Zeile in VS Code ergänzen`
 3. Klicke auf **✓ Commit**.
-
-![Source-Control-Ansicht mit gestagter Datei, eingegebener Commit-Nachricht und markiertem Commit-Button](/images/teil-2/03-vscode-stage-commit.png)
 
 > **Hinweis:** Wenn du auf **Commit** klickst, ohne vorher etwas zu stagen, fragt VS Code, ob es alle Änderungen automatisch stagen soll. Das ist praktisch, aber achte darauf, dass wirklich alle Änderungen in diesen Commit gehören.
 
@@ -368,9 +379,11 @@ In diesem Tutorial lernst du viele Git-Befehle kennen. Du musst sie **nicht ausw
 Starte Claude Code dazu im Terminal von VS Code mit `claude` und beschreibe in normaler Sprache, was du möchtest, zum Beispiel:
 
 ```
-Prüfe, welche Dateien ich geändert habe, und committe die Änderungen
-mit einer passenden Commit-Nachricht.
+Prüfe, was ich geändert habe, und committe meine Änderungen
+mit einer treffenden, kurzen Commit-Nachricht.
 ```
+
+![Claude Code im Terminal von VS Code mit einem eingetippten Prompt zum Committen](/images/teil-2/06-claude-code-commit.png)
 
 Claude Code zeigt dir, welche Befehle es ausführen möchte, und fragt vorher um Erlaubnis. So lernst du nebenbei, welcher Befehl wofür da ist.
 
@@ -395,6 +408,8 @@ In diesem Tutorial – und später bei unserer Webseite – arbeiten wir mit gen
 | `main` | **Unser Produktivsystem** | Hier liegt die **Live-Seite**, die unsere Nutzer gerade benutzen. |
 | `staging` | **Unser Testsystem** | Hier **bereiten wir die neue Version vor**. Neue Funktionen bauen und testen wir hier, bis alles passt. |
 
+> **Achtung, doppelt belegter Begriff:** Das Wort *Staging* kommt in diesem Tutorial zweimal vor – und meint zwei verschiedene Dinge. Die **Staging-Area** ist der Zwischenbereich in Git, in den du mit `git add` deine Änderungen für den nächsten Commit legst (siehe Abschnitt 2.2). Der Branch **`staging`** dagegen ist unser Testsystem. Den Namen haben wir selbst gewählt, mit der Staging-Area hat er nichts zu tun.
+
 ```
   main      ●──────────●──────────────●     Produktivsystem (live)
              \          \            /
@@ -411,16 +426,17 @@ Hättest du nur einen einzigen Branch, hättest du jetzt ein Problem: Entweder d
 
 Mit zwei Branches ist das kein Problem:
 
-1. Du wechselst auf `main`. Dort liegt genau der Stand, der gerade live ist – ohne deine Baustelle.
-2. Du behebst den Fehler direkt auf `main`. Das nennt man einen **Hotfix**. Der Fehler ist live behoben.
-3. Du holst den Hotfix nach `staging`, damit er in der neuen Version nicht wieder auftaucht.
-4. Du arbeitest in `staging` genau dort weiter, wo du aufgehört hast.
+1. Du committest deine noch nicht committeten Änderungen in `staging`. So ist deine halbfertige Arbeit gesichert und du kannst den Branch wechseln.
+2. Du wechselst auf `main`. Dort liegt genau der Stand, der gerade live ist – ohne deine Baustelle.
+3. Du behebst den Fehler direkt auf `main`. Das nennt man einen **Hotfix**. Der Fehler ist live behoben.
+4. Du holst den Hotfix nach `staging`, damit er in der neuen Version nicht wieder auftaucht.
+5. Du arbeitest in `staging` genau dort weiter, wo du aufgehört hast.
 
 Ist die neue Version fertig getestet, bringst du `staging` nach `main` – und die neue Version ist live.
 
 > **Merke:** Neue Funktionen entstehen in `staging`. Direkt auf `main` machst du nur **dringende Korrekturen** an der Live-Seite.
 
-> **Ausblick auf Teil 3:** Dort verbinden wir das mit Vercel. Alles auf `main` wird automatisch auf der echten Webseite veröffentlicht. Alles auf `staging` bekommt eine eigene Vorschau-Adresse zum Testen.
+> **Ausblick auf Teil 3:** Dort verbinden wir das mit Vercel. Alles auf `main` wird automatisch auf der echten Webseite veröffentlicht. Alles auf `staging` bekommt eine eigene Vorschau-URL zum Testen.
 
 ### HEAD
 
@@ -461,6 +477,9 @@ Zwischen Branches wechseln:
 
 ```bash
 git switch main      # zum Produktivsystem wechseln
+```
+
+```bash
 git switch staging   # zurück zum Testsystem
 ```
 
@@ -474,7 +493,7 @@ git switch staging   # zurück zum Testsystem
 
 Über denselben Klick auf den Branchnamen kannst du auch zwischen Branches wechseln.
 
-![VS Code mit markiertem Branchnamen in der Statusleiste und geöffneter Branch-Auswahl](/images/teil-2/04-vscode-branch-erstellen.png)
+![VS Code mit markiertem Branchnamen in der Statusleiste und geöffneter Branch-Auswahl](/images/teil-2/07-vscode-branch-erstellen.png)
 
 > **Achtung:** Schau vor jeder Änderung unten links in die Statusleiste, auf welchem Branch du gerade bist. So landet deine Arbeit nicht versehentlich direkt im Produktivsystem.
 
@@ -494,6 +513,9 @@ Die neue Version unserer Übungsseite soll eine Kontaktdatei bekommen. Lege in V
 
 ```bash
 git add kontakt.txt
+```
+
+```bash
 git commit -m "Kontaktdatei hinzufügen"
 ```
 
@@ -509,6 +531,9 @@ Außerdem soll die neue Version eine Galerie bekommen. Lege die Datei `galerie.t
 
 ```bash
 git add galerie.txt
+```
+
+```bash
 git commit -m "Galerie-Seite anlegen"
 ```
 
@@ -577,7 +602,7 @@ Weil VS Code bereits mit deinem GitHub-Account verbunden ist ([Teil 1, Abschnitt
 3. VS Code fragt, wie das Repository heißen und ob es öffentlich sein soll. Lass den Namen `git-uebung` stehen und wähle **Publish to GitHub private repository** oder **Publish to GitHub public repository** – für die Übung ist beides in Ordnung.
 4. VS Code legt das Repository auf GitHub an und lädt `main` hoch. Unten rechts erscheint eine Meldung mit dem Button **Open on GitHub**.
 
-![VS Code mit der Auswahl „Publish to GitHub private repository" und „Publish to GitHub public repository"](/images/teil-2/05-vscode-publish-to-github.png)
+![VS Code mit der Auswahl „Publish to GitHub private repository" und „Publish to GitHub public repository"](/images/teil-2/08-vscode-publish-to-github.png)
 
 Klicke auf **Open on GitHub**. Du siehst jetzt deine Datei `notizen.txt` und unter **Commits** deine Versionsgeschichte.
 
@@ -594,7 +619,7 @@ Da das Repository jetzt schon existiert, fragt VS Code nicht erneut, sondern lä
 
 Auf GitHub kannst du jetzt über das Branch-Menü (dort steht `main`) zwischen den Branches wechseln.
 
-![Branch-Menü auf GitHub mit den Branches main und staging](/images/teil-2/06-github-branches.png)
+![Branch-Menü auf GitHub mit den Branches main und staging](/images/teil-2/09-github-branches.png)
 
 ### Lokale Branches und Remote-Branches
 
@@ -628,7 +653,7 @@ In echten Projekten arbeiten andere Personen mit und pushen Änderungen zu GitHu
 4. Füge eine Zeile hinzu: `Telefon: 0123 456789`
 5. Klicke auf **Commit changes…** und gib als Nachricht `Telefonnummer ergänzen` ein. Prüfe, dass **Commit directly to the `staging` branch** ausgewählt ist, und bestätige mit **Commit changes**.
 
-![GitHub-Editor mit bearbeiteter kontakt.txt auf dem Branch staging und dem Button „Commit changes"](/images/teil-2/07-github-datei-bearbeiten.png)
+![GitHub-Editor mit bearbeiteter kontakt.txt auf dem Branch staging und dem Button „Commit changes"](/images/teil-2/10-github-datei-bearbeiten.png)
 
 Jetzt ist `staging` auf GitHub einen Commit weiter als auf deinem Computer. Dein lokales Repository weiß davon aber noch nichts.
 
@@ -636,7 +661,13 @@ Jetzt ist `staging` auf GitHub einen Commit weiter als auf deinem Computer. Dein
 
 ```bash
 git switch staging
+```
+
+```bash
 git fetch
+```
+
+```bash
 git status
 ```
 
@@ -679,7 +710,7 @@ In VS Code siehst du unten links in der Statusleiste neben dem Branchnamen, ob d
 
 Ein Klick auf dieses Symbol oder auf **Sync Changes** in der Source-Control-Ansicht führt `git pull` und `git push` nacheinander aus.
 
-![VS-Code-Statusleiste mit Branchnamen und Sync-Anzeige ↓1 ↑0](/images/teil-2/08-vscode-sync.png)
+![VS-Code-Statusleiste mit Branchnamen und Sync-Anzeige ↓1 ↑0](/images/teil-2/11-vscode-sync.png)
 
 ---
 
@@ -702,6 +733,9 @@ Wechsle auf `main`. Im Explorer siehst du: `kontakt.txt` und `galerie.txt` sind 
 
 ```bash
 git switch main
+```
+
+```bash
 git pull
 ```
 
@@ -709,7 +743,13 @@ Lege die Datei `impressum.txt` mit dem Inhalt `Impressum: Max Mustermann, Muster
 
 ```bash
 git add impressum.txt
+```
+
+```bash
 git commit -m "Fehlendes Impressum hinzufügen"
+```
+
+```bash
 git push
 ```
 
@@ -717,7 +757,13 @@ Der Fehler ist live behoben. Jetzt holst du den Hotfix ins Testsystem – sonst 
 
 ```bash
 git switch staging
+```
+
+```bash
 git merge main -m "Hotfix aus main übernehmen"
+```
+
+```bash
 git push
 ```
 
@@ -737,8 +783,17 @@ Die neue Version ist fertig getestet und soll ins Produktivsystem. Dafür wechse
 
 ```bash
 git switch main
+```
+
+```bash
 git pull
+```
+
+```bash
 git merge staging
+```
+
+```bash
 git push
 ```
 
@@ -779,6 +834,9 @@ Ein **Merge-Konflikt** entsteht, wenn **dieselbe Zeile in beiden Branches unters
 
 ```bash
 git switch staging
+```
+
+```bash
 git merge main
 ```
 
@@ -812,7 +870,7 @@ VS Code hebt beide Versionen farbig hervor und zeigt darüber diese Optionen:
 - **Accept Incoming Change** – die Version aus `main` übernehmen
 - **Accept Both Changes** – beide Versionen untereinander behalten
 
-![Datei mit Merge-Konflikt in VS Code mit den Optionen „Accept Current Change", „Accept Incoming Change" und „Accept Both Changes"](/images/teil-2/09-vscode-konflikt.png)
+![Datei mit Merge-Konflikt in VS Code mit den Optionen „Accept Current Change", „Accept Incoming Change" und „Accept Both Changes"](/images/teil-2/12-vscode-konflikt.png)
 
 Wir wollen beides behalten und klicken auf **Accept Both Changes**. Du kannst die Datei aber auch einfach von Hand so bearbeiten, wie sie am Ende aussehen soll – wichtig ist nur, dass alle Konfliktmarker verschwunden sind.
 
@@ -820,7 +878,13 @@ Schließe den Merge danach ab:
 
 ```bash
 git add notizen.txt
+```
+
+```bash
 git commit -m "Merge-Konflikt in notizen.txt lösen"
+```
+
+```bash
 git push
 ```
 

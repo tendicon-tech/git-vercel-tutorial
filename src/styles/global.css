@@ -40,6 +40,14 @@ body {
   color: var(--ink);
 }
 
+/* Auf gelbem Grund wäre eine gelbe Markierung unsichtbar */
+.callout-strong ::selection,
+.pager-next ::selection,
+.part-number ::selection {
+  background: var(--ink);
+  color: var(--yellow);
+}
+
 a {
   color: inherit;
 }
@@ -434,6 +442,35 @@ a {
   font-size: inherit;
 }
 
+/* Befehle zum Kopieren */
+
+.prose .code-block {
+  position: relative;
+  margin: 0 0 1.5rem;
+}
+
+.prose .code-block pre {
+  margin: 0;
+  padding-right: 7rem;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.45rem 0.8rem;
+  border: none;
+  background: var(--yellow);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: var(--paper);
+}
+
 /* Hinweise */
 
 .prose .callout {
@@ -450,6 +487,22 @@ a {
 
 .prose .callout > :last-child {
   margin-bottom: 0;
+}
+
+/* Auf gelbem Grund brauchen Links und Code eigene Farben */
+
+.prose .callout-strong a {
+  text-decoration-color: var(--ink);
+}
+
+.prose .callout-strong a:hover {
+  background: var(--ink);
+  color: var(--yellow);
+}
+
+.prose .callout-strong :not(pre) > code {
+  background: var(--paper);
+  border-color: var(--ink);
 }
 
 .prose .callout pre {

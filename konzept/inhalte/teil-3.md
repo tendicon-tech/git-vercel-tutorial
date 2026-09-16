@@ -321,9 +321,21 @@ Oder im Terminal:
 
 ```bash
 git switch main
+```
+
+```bash
 git pull
+```
+
+```bash
 git merge staging
+```
+
+```bash
 git push
+```
+
+```bash
 git switch staging
 ```
 
