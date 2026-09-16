@@ -8,6 +8,8 @@ export default defineConfig({
     processor: unified({ rehypePlugins: [rehypeTutorial] }),
     shikiConfig: {
       theme: 'github-dark',
+      // ```prompt = Text, den man in Claude Code eingibt (bekommt einen Kopier-Button).
+      langAlias: { prompt: 'text' },
     },
   },
 });

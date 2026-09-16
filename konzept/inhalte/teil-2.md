@@ -378,7 +378,7 @@ In diesem Tutorial lernst du viele Git-Befehle kennen. Du musst sie **nicht ausw
 
 Starte Claude Code dazu im Terminal von VS Code mit `claude` und beschreibe in normaler Sprache, was du möchtest, zum Beispiel:
 
-```
+```prompt
 Prüfe, was ich geändert habe, und committe meine Änderungen
 mit einer treffenden, kurzen Commit-Nachricht.
 ```
@@ -809,7 +809,7 @@ Git meldet **Fast-forward**: Auf `main` ist seit dem letzten Merge nichts Neues 
 
 > **Mit der KI mergen:** Gerade beim Mergen musst du dir die Befehle nicht merken. Wenn du unsicher bist oder Konflikte vermutest, starte Claude Code im Terminal mit `claude` und gib zum Beispiel ein:
 >
-> ```
+> ```prompt
 > Hilf mir, den staging- und den main-Branch zu synchronisieren. Prüfe beide
 > Branches und gib mir die Git-Befehle, um beide sicher zusammenzuführen.
 > ```
@@ -888,7 +888,7 @@ In VS Code geht das genauso: Datei in der Source-Control-Ansicht mit **+** stage
 
 > **Mit der KI Konflikte lösen:** Auch hier hilft dir Claude Code. Gib zum Beispiel ein:
 >
-> ```
+> ```prompt
 > Ich habe beim Mergen von main in staging einen Konflikt. Erkläre mir,
 > was in den beiden Versionen steht, und hilf mir, den Konflikt zu lösen.
 > ```

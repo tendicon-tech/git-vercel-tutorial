@@ -386,14 +386,13 @@ Die Bilder werden erst in die Inhalte eingefügt, wenn die Datei unter `public/i
 | `teil-3/03-astro-localhost.png` | Astro-Vorlage im Browser unter `localhost:4321` |
 | `teil-3/04-claude-code-prompt.png` | Claude Code mit dem eingegebenen Prompt |
 | `teil-3/05-claude-code-erlaubnis.png` | Claude Code fragt um Erlaubnis für eine Änderung |
-| `teil-3/06-astro-ergebnis.png` | Fertige Startseite mit Elefant und Links |
 | `teil-3/07-vscode-publish-to-github.png` | „Publish to GitHub public repository" für `mein-astro-projekt` |
 | `teil-3/08-github-astro-repository.png` | Repository `mein-astro-projekt` auf GitHub |
 | `teil-3/09-vercel-import.png` | Vercel „Import Git Repository" |
 | `teil-3/10-vercel-configure.png` | Vercel „Configure Project" mit erkanntem Framework Astro |
 | `teil-3/11-vercel-congratulations.png` | Vercel-Erfolgsmeldung nach dem ersten Deployment |
-| `teil-3/12-vercel-preview-staging.png` | Preview Deployment für den Branch `staging` |
-| `teil-3/13-vercel-build-error.png` | Vercel-Build-Log mit Fehlermeldung |
+| `teil-3/13-vercel-preview-staging.png` | Preview Deployment für den Branch `staging` |
+| `teil-3/14-vercel-build-error.png` | Vercel-Build-Log mit Fehlermeldung |
 
 ## 9. Offene Fragen
 

@@ -263,7 +263,7 @@ claude
 4. Es öffnet sich ein Browserfenster. Melde dich an und bestätige den Zugriff.
 5. Zurück im Terminal ist Claude Code bereit. Du kannst jetzt Fragen stellen, zum Beispiel:
 
-```
+```prompt
 Was ist der Unterschied zwischen Git, Git Bash und GitHub?
 ```
 

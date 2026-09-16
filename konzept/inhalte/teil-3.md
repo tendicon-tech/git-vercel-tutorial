@@ -15,7 +15,11 @@ description: Ein Astro-Projekt erstellen, auf GitHub veröffentlichen und über 
 
 ## 3.1 Was ist Astro?
 
-**Astro** ist ein Framework zum Bauen von schnellen Webseiten. Es eignet sich besonders für Seiten, bei denen der **Inhalt** im Mittelpunkt steht: Blogs, Portfolios, Firmenwebseiten – oder Tutorials wie dieses. Wie Astro im Detail funktioniert, musst du nicht wissen – den Code schreibt Claude Code für dich.
+**Astro** ist ein Framework zum Bauen von schnellen Webseiten. Es eignet sich besonders für Seiten, bei denen der **Inhalt** im Mittelpunkt steht: Blogs, Portfolios, Firmenwebseiten – oder Tutorials wie dieses. Die Besucher lesen, schauen und klicken auf Links.
+
+Das Gegenstück sind **Anwendungen**, bei denen die **Funktion** im Mittelpunkt steht: ein Online-Shop mit Warenkorb, ein Buchungssystem, ein Postfach oder ein Dashboard. Dort melden sich Leute an, geben Daten ein und bekommen laufend neue Inhalte angezeigt. Für solche Anwendungen nimmt man eher Frameworks wie Next.js.
+
+Die Grenze ist fließend, und auch mit Astro kannst du einzelne interaktive Bereiche einbauen. Für unsere Webseite ist es genau das Richtige. Wie Astro im Detail funktioniert, musst du übrigens nicht wissen – den Code schreibt Claude Code für dich.
 
 > **Hinweis:** Diese Tutorial-Seite ist selbst ein Astro-Projekt. Schau dir den [Quellcode auf GitHub](https://github.com/) an, wenn du sehen willst, wie sie aufgebaut ist.
 
@@ -121,7 +125,7 @@ claude
 
 Gib diesen Prompt ein und drücke **Enter**:
 
-```
+```prompt
 Lösche den Astro-Template-Code. Erstelle eine Hero-Sektion mit dem Titel
 „Meine erste Astro-Webseite". Zeichne daneben einen Elefanten. Erstelle zwei
 weitere Seiten: ein Impressum mit Platzhaltern und eine Datenschutzerklärung.
@@ -142,6 +146,8 @@ Du siehst im Terminal laufend, woran Claude Code gerade arbeitet. Wenn es fertig
 
 Wechsle in den Browser. Die Seite unter `http://localhost:4321/` hat sich **automatisch aktualisiert**. Du siehst deine Hero-Sektion mit dem Titel und dem Elefanten. Klicke auch auf die Links zum Impressum und zur Datenschutzerklärung.
 
+![Fertige Startseite im Browser: Titel „Meine erste Astro-Webseite", ein gezeichneter Elefant und die Links zu Impressum und Datenschutzerklärung](/images/teil-3/06-astro-ergebnis.png)
+
 > **Hinweis:** Dein Ergebnis sieht wahrscheinlich etwas anders aus als auf dem Screenshot. Die KI erzeugt jedes Mal eine eigene Lösung – das ist ganz normal.
 
 > **Tipp:** Gefällt dir etwas nicht? Sag es Claude Code einfach, zum Beispiel: „Mach den Elefanten größer und färbe den Hintergrund der Hero-Sektion hellblau." So verbesserst du deine Seite Schritt für Schritt.
@@ -154,7 +160,7 @@ Jetzt kommt dein Wissen aus Teil 2 zum Einsatz. Da es noch keine Live-Seite gibt
 
 Du kannst die Änderungen wie gewohnt in der **Source Control**-Ansicht committen – oder du bittest Claude Code darum:
 
-```
+```prompt
 Committe alle Änderungen mit einer passenden Commit-Nachricht.
 ```
 
@@ -227,13 +233,17 @@ Probieren wir das gleich aus. Diese erste Änderung bringen wir noch direkt auf 
 
 Starte Claude Code im Terminal von VS Code mit `claude` und gib einen Prompt ein, zum Beispiel:
 
-```
+```prompt
 Ersetze den Elefanten durch eine Katze.
 ```
 
-Sieh dir das Ergebnis unter `http://localhost:4321/` an. Gefällt es dir, committe und pushe die Änderung – in der Source-Control-Ansicht mit **✓ Commit** und **Sync Changes** oder mit einem Prompt:
+Sieh dir das Ergebnis unter `http://localhost:4321/` an.
 
-```
+![Startseite im Browser: An der Stelle des Elefanten sitzt jetzt eine gezeichnete Katze](/images/teil-3/12-astro-katze.png)
+
+Gefällt es dir, committe und pushe die Änderung – in der Source-Control-Ansicht mit **✓ Commit** und **Sync Changes** oder mit einem Prompt:
+
+```prompt
 Committe alle Änderungen mit einer passenden Commit-Nachricht und pushe sie.
 ```
 
@@ -269,7 +279,7 @@ Vercel behandelt die beiden Branches automatisch unterschiedlich:
 
 Prüfe unten links in der Statusleiste, dass du auf `staging` bist. Gib Claude Code einen neuen Prompt – was du möchtest, zum Beispiel:
 
-```
+```prompt
 Färbe den Hintergrund der Hero-Sektion hellblau und füge unter dem Titel
 einen kurzen Begrüßungstext hinzu.
 ```
@@ -288,7 +298,7 @@ Sobald es fertig ist (Status **Ready**), klicke darauf und öffne die Vorschau-A
 
 Passt alles in der Vorschau? Dann bringst du `staging` nach `main` – genau wie in Teil 2. Das kannst du Claude Code überlassen:
 
-```
+```prompt
 Merge den staging-Branch in main und pushe main. Wechsle danach zurück
 auf staging.
 ```

@@ -67,7 +67,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
     <script>
       const blocks = document.querySelectorAll(
-        '.prose pre[data-language="bash"], .prose pre[data-language="powershell"]',
+        '.prose pre[data-language="bash"], .prose pre[data-language="powershell"], .prose pre[data-language="prompt"]',
       );
 
       for (const pre of blocks) {
