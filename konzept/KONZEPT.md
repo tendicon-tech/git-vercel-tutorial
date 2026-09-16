@@ -365,6 +365,38 @@ npm run dev
 8. Screenshots auf dem Mac erstellen, während das Tutorial einmal komplett durchgespielt wird (Windows-Installer und Git Bash separat)
 9. Feinschliff: Startseite, Spickzettel, Meta-Daten, README für das öffentliche Repository
 
-## 8. Offene Fragen
+## 8. Noch fehlende Screenshots
+
+Die Bilder werden erst in die Inhalte eingefügt, wenn die Datei unter `public/images/…` liegt. So enthält die Webseite nie ein kaputtes Bild.
+
+### Teil 2
+
+| Datei | Zeigt |
+|---|---|
+| `teil-2/08-vscode-publish-to-github.png` | Auswahl „Publish to GitHub private repository" / „Publish to GitHub public repository" |
+| `teil-2/09-github-branches.png` | Branch-Menü auf GitHub mit `main` und `staging` |
+| `teil-2/10-github-datei-bearbeiten.png` | GitHub-Editor mit bearbeiteter `kontakt.txt` auf `staging` |
+| `teil-2/11-vscode-sync.png` | VS-Code-Statusleiste mit Branchname und Sync-Anzeige |
+| `teil-2/12-vscode-konflikt.png` | Merge-Konflikt in VS Code mit „Accept Current Change" usw. |
+
+### Teil 3
+
+| Datei | Zeigt |
+|---|---|
+| `teil-3/01-vscode-neuer-ordner.png` | Leerer Ordner `mein-astro-projekt` mit geöffnetem Terminal |
+| `teil-3/02-create-astro.png` | Astro-Assistent mit allen beantworteten Fragen |
+| `teil-3/03-astro-localhost.png` | Astro-Vorlage im Browser unter `localhost:4321` |
+| `teil-3/04-claude-code-prompt.png` | Claude Code mit dem eingegebenen Prompt |
+| `teil-3/05-claude-code-erlaubnis.png` | Claude Code fragt um Erlaubnis für eine Änderung |
+| `teil-3/06-astro-ergebnis.png` | Fertige Startseite mit Elefant und Links |
+| `teil-3/07-vscode-publish-to-github.png` | „Publish to GitHub public repository" für `mein-astro-projekt` |
+| `teil-3/08-github-astro-repository.png` | Repository `mein-astro-projekt` auf GitHub |
+| `teil-3/09-vercel-import.png` | Vercel „Import Git Repository" |
+| `teil-3/10-vercel-configure.png` | Vercel „Configure Project" mit erkanntem Framework Astro |
+| `teil-3/11-vercel-congratulations.png` | Vercel-Erfolgsmeldung nach dem ersten Deployment |
+| `teil-3/12-vercel-preview-staging.png` | Preview Deployment für den Branch `staging` |
+| `teil-3/13-vercel-build-error.png` | Vercel-Build-Log mit Fehlermeldung |
+
+## 9. Offene Fragen
 
 - Screenshots mit Programmen in deutscher oder englischer Sprache? (Empfehlung: Englisch, da VS Code, GitHub und Vercel standardmäßig englisch sind und Fehlermeldungen so leichter zu googeln sind)

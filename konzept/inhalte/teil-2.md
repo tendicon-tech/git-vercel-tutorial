@@ -602,8 +602,6 @@ Weil VS Code bereits mit deinem GitHub-Account verbunden ist ([Teil 1, Abschnitt
 3. VS Code fragt, wie das Repository heißen und ob es öffentlich sein soll. Lass den Namen `git-uebung` stehen und wähle **Publish to GitHub private repository** oder **Publish to GitHub public repository** – für die Übung ist beides in Ordnung.
 4. VS Code legt das Repository auf GitHub an und lädt `main` hoch. Unten rechts erscheint eine Meldung mit dem Button **Open on GitHub**.
 
-![VS Code mit der Auswahl „Publish to GitHub private repository" und „Publish to GitHub public repository"](/images/teil-2/08-vscode-publish-to-github.png)
-
 Klicke auf **Open on GitHub**. Du siehst jetzt deine Datei `notizen.txt` und unter **Commits** deine Versionsgeschichte.
 
 > **Was ist im Hintergrund passiert?** VS Code hat das Repository auf GitHub erstellt, es als Remote mit dem Namen `origin` eingetragen und den Branch hochgeladen. Im Terminal hätte das so ausgesehen: `git remote add origin https://github.com/dein-name/git-uebung.git` und `git push -u origin main`.
@@ -618,8 +616,6 @@ Auch unser Testsystem laden wir zu GitHub hoch:
 Da das Repository jetzt schon existiert, fragt VS Code nicht erneut, sondern lädt den Branch direkt hoch. Im Terminal ginge das mit `git push -u origin staging`.
 
 Auf GitHub kannst du jetzt über das Branch-Menü (dort steht `main`) zwischen den Branches wechseln.
-
-![Branch-Menü auf GitHub mit den Branches main und staging](/images/teil-2/09-github-branches.png)
 
 ### Lokale Branches und Remote-Branches
 
@@ -652,8 +648,6 @@ In echten Projekten arbeiten andere Personen mit und pushen Änderungen zu GitHu
 3. Klicke auf `kontakt.txt` und dann auf das **Stift-Symbol** (*Edit this file*).
 4. Füge eine Zeile hinzu: `Telefon: 0123 456789`
 5. Klicke auf **Commit changes…** und gib als Nachricht `Telefonnummer ergänzen` ein. Prüfe, dass **Commit directly to the `staging` branch** ausgewählt ist, und bestätige mit **Commit changes**.
-
-![GitHub-Editor mit bearbeiteter kontakt.txt auf dem Branch staging und dem Button „Commit changes"](/images/teil-2/10-github-datei-bearbeiten.png)
 
 Jetzt ist `staging` auf GitHub einen Commit weiter als auf deinem Computer. Dein lokales Repository weiß davon aber noch nichts.
 
@@ -709,8 +703,6 @@ In VS Code siehst du unten links in der Statusleiste neben dem Branchnamen, ob d
 - **↑2** – du hast zwei Commits, die noch nicht auf GitHub sind
 
 Ein Klick auf dieses Symbol oder auf **Sync Changes** in der Source-Control-Ansicht führt `git pull` und `git push` nacheinander aus.
-
-![VS-Code-Statusleiste mit Branchnamen und Sync-Anzeige ↓1 ↑0](/images/teil-2/11-vscode-sync.png)
 
 ---
 
@@ -869,8 +861,6 @@ VS Code hebt beide Versionen farbig hervor und zeigt darüber diese Optionen:
 - **Accept Current Change** – deine Version (`staging`) behalten
 - **Accept Incoming Change** – die Version aus `main` übernehmen
 - **Accept Both Changes** – beide Versionen untereinander behalten
-
-![Datei mit Merge-Konflikt in VS Code mit den Optionen „Accept Current Change", „Accept Incoming Change" und „Accept Both Changes"](/images/teil-2/12-vscode-konflikt.png)
 
 Wir wollen beides behalten und klicken auf **Accept Both Changes**. Du kannst die Datei aber auch einfach von Hand so bearbeiten, wie sie am Ende aussehen soll – wichtig ist nur, dass alle Konfliktmarker verschwunden sind.
 

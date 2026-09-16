@@ -546,20 +546,3 @@ a {
   margin: 1.75rem 0;
   border: 1px solid var(--ink);
 }
-
-.screenshot-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 16 / 9;
-  margin: 1.75rem 0;
-  padding: 2rem;
-  background:
-    linear-gradient(135deg, transparent 0 calc(100% - 3rem), var(--yellow) calc(100% - 3rem)),
-    var(--soft);
-  border: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.875rem;
-  line-height: 1.5;
-  text-align: center;
-}

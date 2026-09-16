@@ -1,7 +1,3 @@
-import { existsSync } from 'node:fs';
-import { join } from 'node:path';
-
-const PUBLIC_DIR = join(process.cwd(), 'public');
 const STRONG_CALLOUTS = /^(Achtung|Häufiger Fehler|Keine Panik)/;
 
 function textOf(node) {
@@ -24,18 +20,6 @@ function transform(node) {
   if (!node.children) return;
 
   node.children = node.children.map((child) => {
-    if (isElement(child, 'img')) {
-      const src = String(child.properties.src ?? '');
-      if (src.startsWith('/') && !existsSync(join(PUBLIC_DIR, src))) {
-        return {
-          type: 'element',
-          tagName: 'span',
-          properties: { className: ['screenshot-placeholder'], role: 'img', ariaLabel: child.properties.alt },
-          children: [{ type: 'text', value: String(child.properties.alt ?? '') }],
-        };
-      }
-    }
-
     if (isElement(child, 'table')) {
       transform(child);
       return {

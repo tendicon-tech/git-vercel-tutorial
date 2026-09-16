@@ -32,8 +32,6 @@ description: Ein Astro-Projekt erstellen, auf GitHub veröffentlichen und über 
 5. Falls VS Code fragt, ob du den Dateien vertraust, klicke auf **Yes, I trust the authors**.
 6. Öffne das Terminal mit **Strg + ö** oder über das Menü **Terminal** → **New Terminal**. Es startet automatisch im Ordner `mein-astro-projekt`.
 
-![VS Code mit dem leeren Ordner mein-astro-projekt und geöffnetem Terminal](/images/teil-3/01-vscode-neuer-ordner.png)
-
 ### Den Astro-Assistenten starten
 
 Tippe im Terminal von VS Code:
@@ -57,8 +55,6 @@ Wähle **Yes**. Astro installiert jetzt alle Pakete, die das Projekt braucht.
 
 **Initialize a new git repository?**
 Wähle **Yes**. Astro führt für dich `git init` aus und erstellt direkt den ersten Commit.
-
-![Astro-Assistent im Terminal von VS Code mit allen beantworteten Fragen](/images/teil-3/02-create-astro.png)
 
 Nach kurzer Zeit meldet Astro:
 
@@ -103,8 +99,6 @@ npm run dev
 
 Halte **Strg** gedrückt und klicke auf `http://localhost:4321/` – oder tippe die Adresse in deinen Browser. Du siehst die Startseite, die Astro als Vorlage mitbringt.
 
-![Browser mit der Astro-Vorlage unter localhost:4321](/images/teil-3/03-astro-localhost.png)
-
 > **Was ist localhost?** `localhost` bedeutet „dieser Computer". Die Seite läuft nur auf deinem Rechner und ist noch nicht im Internet.
 
 > **Hinweis:** Solange die Seite läuft, ist dieses Terminal belegt. Lass es einfach offen. Für alles Weitere öffnest du ein **zweites Terminal** über das **+** im Terminal-Bereich. Die Seite beendest du später mit **Strg + C**.
@@ -134,8 +128,6 @@ weitere Seiten: ein Impressum mit Platzhaltern und eine Datenschutzerklärung.
 Verlinke beide Seiten von der Startseite.
 ```
 
-![Claude Code im Terminal von VS Code mit dem eingegebenen Prompt](/images/teil-3/04-claude-code-prompt.png)
-
 > **Was ist ein Prompt?** Ein **Prompt** ist die Anweisung, die du der KI gibst. Je genauer du beschreibst, was du willst, desto besser wird das Ergebnis.
 
 ### Warten und Änderungen erlauben
@@ -144,15 +136,11 @@ Claude Code sieht sich jetzt dein Projekt an, plant die Änderungen und legt los
 
 Bevor Claude Code Dateien ändert oder anlegt, fragt es dich um Erlaubnis. Sieh dir kurz an, was es vorhat, und bestätige mit **Yes**. Wenn du nicht bei jeder Datei gefragt werden möchtest, kannst du auch die Option wählen, Änderungen für diese Sitzung generell zu erlauben.
 
-![Claude Code fragt um Erlaubnis, eine Datei zu ändern](/images/teil-3/05-claude-code-erlaubnis.png)
-
 Du siehst im Terminal laufend, woran Claude Code gerade arbeitet. Wenn es fertig ist, fasst es zusammen, was es gemacht hat.
 
 ### Das Ergebnis ansehen
 
 Wechsle in den Browser. Die Seite unter `http://localhost:4321/` hat sich **automatisch aktualisiert**. Du siehst deine Hero-Sektion mit dem Titel und dem Elefanten. Klicke auch auf die Links zum Impressum und zur Datenschutzerklärung.
-
-![Browser mit der neuen Startseite: Titel „Meine erste Astro-Webseite", daneben ein gezeichneter Elefant, darunter Links zu Impressum und Datenschutz](/images/teil-3/06-astro-ergebnis.png)
 
 > **Hinweis:** Dein Ergebnis sieht wahrscheinlich etwas anders aus als auf dem Screenshot. Die KI erzeugt jedes Mal eine eigene Lösung – das ist ganz normal.
 
@@ -183,11 +171,7 @@ Genau wie in [Teil 2](/teil-2/) legt VS Code das Repository für dich an:
 3. Lass den Namen `mein-astro-projekt` stehen und wähle **Publish to GitHub public repository**.
 4. VS Code legt das Repository auf GitHub an und lädt alles hoch. Klicke unten rechts in der Meldung auf **Open on GitHub**.
 
-![VS Code mit der Auswahl „Publish to GitHub public repository" für mein-astro-projekt](/images/teil-3/07-vscode-publish-to-github.png)
-
 Du siehst jetzt alle Dateien deines Projekts auf GitHub – aber **keinen** Ordner `node_modules`. Den hat Astro in die `.gitignore` eingetragen, weil er riesig ist und jederzeit neu erzeugt werden kann.
-
-![GitHub-Repository mein-astro-projekt mit allen Projektdateien](/images/teil-3/08-github-astro-repository.png)
 
 ---
 
@@ -201,8 +185,6 @@ Jetzt kommt der spannende Teil: Wir bringen die Seite ins Internet.
 2. Klicke im Dashboard auf **Add New…** → **Project**.
 3. Unter **Import Git Repository** siehst du eine Liste deiner GitHub-Repositories. Klicke bei `mein-astro-projekt` auf **Import**.
 
-![Vercel-Seite „Import Git Repository" mit dem Repository mein-astro-projekt](/images/teil-3/09-vercel-import.png)
-
 > **Häufiger Fehler:** Das Repository taucht in der Liste nicht auf.
 > Vercel hat noch keine Berechtigung, auf dieses Repository zuzugreifen. Klicke auf **Adjust GitHub App Permissions** (oder **Configure GitHub App**). Auf GitHub kannst du dann unter **Repository access** entweder **All repositories** wählen oder unter **Only select repositories** gezielt `mein-astro-projekt` hinzufügen. Klicke auf **Save** und kehre zu Vercel zurück.
 
@@ -215,8 +197,6 @@ Vercel zeigt dir die Seite **Configure Project**. Das Beste daran: Du musst fast
 - **Root Directory:** `./` – das Projekt liegt direkt im Hauptordner des Repositorys.
 - **Build and Output Settings:** Vercel weiß bereits, dass es `npm run build` ausführen und den Ordner `dist` veröffentlichen muss.
 
-![Vercel-Seite „Configure Project" mit automatisch erkanntem Framework Astro](/images/teil-3/10-vercel-configure.png)
-
 Klicke auf **Deploy**.
 
 ### Das erste Deployment
@@ -224,8 +204,6 @@ Klicke auf **Deploy**.
 Vercel holt jetzt dein Projekt von GitHub, installiert die Pakete, führt `npm run build` aus und veröffentlicht das Ergebnis. Du kannst dabei live im **Build-Log** zusehen. Das dauert meist nur eine knappe Minute.
 
 Danach begrüßt dich Vercel mit **Congratulations!** und einer Vorschau deiner Seite.
-
-![Vercel-Erfolgsmeldung „Congratulations!" mit Vorschau der Webseite](/images/teil-3/11-vercel-congratulations.png)
 
 Klicke auf **Continue to Dashboard**. Unter **Domains** findest du die Adresse deiner Webseite, zum Beispiel:
 
@@ -304,8 +282,6 @@ Vercel baut den Branch `staging` automatisch. Im Vercel-Dashboard unter **Deploy
 
 Sobald es fertig ist (Status **Ready**), klicke darauf und öffne die Vorschau-Adresse. Du siehst deine neue Änderung – deine echte Seite unter `mein-astro-projekt.vercel.app` ist aber **unverändert**.
 
-![Vercel-Dashboard mit einem Preview Deployment für den Branch staging](/images/teil-3/12-vercel-preview-staging.png)
-
 > **Hinweis:** Vercel schützt Preview Deployments standardmäßig. Wer die Vorschau-Adresse öffnet, muss eventuell bei Vercel angemeldet sein. Deine echte Adresse ist dagegen für alle öffentlich erreichbar.
 
 ### Schritt 5: Die neue Version live schalten
@@ -360,8 +336,6 @@ Ein Klick auf das Symbol führt dich direkt zu den Details bei Vercel.
 ### Build-Logs lesen
 
 Schlägt ein Deployment fehl, bekommst du eine E-Mail von Vercel und das Deployment wird im Dashboard als **Error** markiert. Klicke darauf und öffne die **Build Logs**. Die entscheidende Fehlermeldung steht meistens **am Ende** des Logs – oft rot hervorgehoben.
-
-![Vercel Build-Log mit einer rot markierten Fehlermeldung](/images/teil-3/13-vercel-build-error.png)
 
 > **Tipp:** Kopiere die Fehlermeldung und frag Claude Code: „Mein Vercel-Deployment schlägt mit diesem Fehler fehl: … Was bedeutet das und wie behebe ich es?"
 
