@@ -330,10 +330,45 @@ a {
   font-size: 0.875rem;
 }
 
-.site-footer a {
+.footer-source {
   text-decoration-color: var(--yellow);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+}
+
+/* Sprachumschalter */
+
+.site-langs {
+  display: flex;
+  margin-left: auto;
+}
+
+.site-langs a {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.site-langs a + a {
+  border-left: none;
+}
+
+.site-langs a:hover {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.site-langs a[aria-current='true'] {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.site-langs abbr {
+  text-decoration: none;
 }
 
 /* ---------- Fließtext ---------- */

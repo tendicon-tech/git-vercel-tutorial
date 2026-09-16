@@ -35,39 +35,57 @@ Bewusst **oldschool und basic**: reines Astro, kein Theme, keine UI-Bibliothek. 
 | Bereich | Technologie |
 |---|---|
 | Framework | **Astro** (ohne Starlight oder andere Themes) |
-| Inhalte | Markdown-Dateien in `src/pages/`, die über ein gemeinsames Layout gerendert werden |
+| Inhalte | Markdown-Dateien in `konzept/inhalte/<sprache>/`, die über ein gemeinsames Layout gerendert werden |
 | Styling | Eine einfache, handgeschriebene CSS-Datei |
 | Code-Hervorhebung | Astros eingebautes Syntax-Highlighting (wird beim Build erzeugt, kein JavaScript im Browser) |
 | Bilder | Screenshots als PNG in `public/images/`, Git-Diagramme als statische Bilder/SVG |
 | Versionierung | Git, **öffentliches** Repository auf **GitHub** |
 | Hosting & Deployment | **Vercel** (automatisches Deployment bei jedem Push auf `main`, Preview-Deployments für Branches/Pull Requests) |
-| Sprache | Deutsch |
+| Sprache | **Deutsch** (unter `/`) und **Englisch** (unter `/en/`), umschaltbar über DE/EN im Kopfbereich |
 
 ### Geplante Projektstruktur
 
 ```
 git-vercel-tutorial/
+├── konzept/
+│   ├── KONZEPT.md
+│   └── inhalte/
+│       ├── de/              # startseite.md, teil-1.md, teil-2.md, teil-3.md
+│       └── en/              # home.md, part-1.md, part-2.md, part-3.md
 ├── public/
 │   └── images/
 │       ├── teil-1/          # Screenshots Einrichtung
 │       ├── teil-2/          # Screenshots & Diagramme Git
 │       └── teil-3/          # Screenshots Astro & Vercel
 ├── src/
-│   ├── layouts/
-│   │   └── TutorialLayout.astro   # Kopfzeile, Navigation, Inhalt, Weiter/Zurück
 │   ├── components/
-│   │   └── Navigation.astro       # statische Inhaltsübersicht
+│   │   ├── HomePage.astro         # Startseite, sprachunabhängig
+│   │   └── PartPage.astro         # Tutorial-Seite mit Inhaltsverzeichnis und Pager
+│   ├── layouts/
+│   │   └── Base.astro             # Kopfzeile, Navigation, DE/EN-Umschalter, Footer
+│   ├── lib/
+│   │   ├── i18n.ts                # Sprachen, Adressen und alle Oberflächentexte
+│   │   └── rehype-tutorial.mjs    # Callouts, Zoom-Buttons, Tabellen
 │   ├── styles/
 │   │   └── global.css
 │   └── pages/
-│       ├── index.astro            # Startseite
-│       ├── teil-1/                # je Lektion eine .md-Datei
-│       ├── teil-2/
-│       └── teil-3/
+│       ├── index.astro            # /            (deutsche Startseite)
+│       ├── [slug].astro           # /teil-1/ …
+│       └── en/
+│           ├── index.astro        # /en/         (englische Startseite)
+│           └── [slug].astro       # /en/part-1/ …
 ├── astro.config.mjs
 ├── package.json
 └── README.md
 ```
+
+### Zweisprachigkeit
+
+- Deutsch liegt unter `/`, Englisch unter `/en/` – die deutschen Adressen bleiben damit unverändert.
+- Die Sprache einer Markdown-Datei ergibt sich aus ihrem Ordner. Das rehype-Plugin liest sie von dort ab, um Callouts und Zoom-Beschriftungen zu übersetzen.
+- Alle Oberflächentexte (Navigation, Weiter/Zurück, Kopier-Button, Footer) stehen in `src/lib/i18n.ts`, nicht in den Astro-Dateien.
+- Die englischen Seiten verwenden **englische Beispielnamen** (`git-practice`, `notes.txt`, `my-astro-project`). Die Screenshots stammen bisher aus der deutschen Variante und zeigen noch die deutschen Namen – siehe Abschnitt 8.
+- Callout-Schlüsselwörter: Deutsch `Achtung` / `Häufiger Fehler` / `Keine Panik`, Englisch `Careful` / `Common mistake` / `Don't panic`. Nur diese Wörter erzeugen den hervorgehobenen Kasten.
 
 ### Wiederkehrende Elemente auf jeder Tutorial-Seite
 
@@ -393,6 +411,22 @@ Die Bilder werden erst in die Inhalte eingefügt, wenn die Datei unter `public/i
 | `teil-3/11-vercel-congratulations.png` | Vercel-Erfolgsmeldung nach dem ersten Deployment |
 | `teil-3/13-vercel-preview-staging.png` | Preview Deployment für den Branch `staging` |
 | `teil-3/14-vercel-build-error.png` | Vercel-Build-Log mit Fehlermeldung |
+
+### Englische Variante
+
+Die englischen Seiten binden dieselben Screenshots ein wie die deutschen. Im Text stehen aber englische Beispielnamen, in den Bildern noch die deutschen. Betroffen sind:
+
+| Im englischen Text | Auf dem Screenshot |
+|---|---|
+| `git-practice` | `git-uebung` |
+| `notes.txt` | `notizen.txt` |
+| `contact.txt` | `kontakt.txt` |
+| `gallery.txt` | `galerie.txt` |
+| `imprint.txt` | `impressum.txt` |
+| `my-astro-project` | `mein-astro-projekt` |
+| Imprint / Privacy policy | Impressum / Datenschutzerklärung |
+
+Solange die Screenshots nicht neu aufgenommen sind, sollten sie in der englischen Variante in einem eigenen Ordner `public/images/en/…` liegen und dort einzeln ersetzt werden.
 
 ## 9. Offene Fragen
 

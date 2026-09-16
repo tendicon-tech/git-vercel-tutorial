@@ -2,35 +2,85 @@
 import '@fontsource-variable/geist';
 import '@fontsource-variable/geist-mono';
 import '../styles/global.css';
-import { parts } from '../lib/parts';
+import {
+  alternateUrls,
+  homeUrl,
+  languages,
+  LANGUAGE_STORAGE_KEY,
+  partUrl,
+  repositoryUrl,
+  sites,
+  type Language,
+} from '../lib/i18n';
 
 interface Props {
   title: string;
   description: string;
+  lang: Language;
+  /** Position des Teils in der Navigation, null auf der Startseite. */
+  index: number | null;
+  /**
+   * Besucher ohne Deutsch einmalig auf die englische Startseite schicken.
+   * Nur auf der deutschen Startseite sinnvoll – sie ist der einzige Einstieg
+   * ohne ausgesprochenen Sprachwunsch.
+   */
+  detectLanguage?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, lang, index, detectLanguage = false } = Astro.props;
+
+const site = sites[lang];
+const ui = site.ui;
+const alternates = alternateUrls(index);
 const currentPath = Astro.url.pathname.replace(/\/$/, '');
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      languages.map((other) => (
+        <link rel="alternate" hreflang={other} href={alternates[other]} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={alternates.de} />
+    {
+      detectLanguage && (
+        <script
+          is:inline
+          define:vars={{ englishUrl: homeUrl('en'), storageKey: LANGUAGE_STORAGE_KEY }}
+        >
+          // Läuft bewusst vor dem Rendern, damit die deutsche Seite nicht kurz aufblitzt.
+          try {
+            const chosen = localStorage.getItem(storageKey);
+            const tags = navigator.languages || [navigator.language || 'de'];
+            const wantsGerman = tags.some((tag) => tag.toLowerCase().startsWith('de'));
+
+            // Eine Wahl im Umschalter hat immer Vorrang vor der Browsersprache.
+            if (chosen === 'en' || (!chosen && !wantsGerman)) {
+              location.replace(englishUrl);
+            }
+          } catch {
+            // Ohne localStorage bleibt es bei der deutschen Fassung.
+          }
+        </script>
+      )
+    }
     <title>{title}</title>
   </head>
-  <body>
+  <body data-copy={ui.copy} data-copied={ui.copied} data-copy-failed={ui.copyFailed}>
     <header class="site-header">
-      <a class="wordmark" href="/">Das&nbsp;KI-Web-Tutorial</a>
-      <nav class="site-nav" aria-label="Tutorial">
+      <a class="wordmark" href={homeUrl(lang)}>{ui.wordmark}</a>
+      <nav class="site-nav" aria-label={ui.navLabel}>
         {
-          parts.map((part) => (
+          site.parts.map((part, i) => (
             <a
-              href={`/${part.slug}/`}
-              aria-current={currentPath === `/${part.slug}` ? 'page' : undefined}
+              href={partUrl(lang, i)}
+              aria-current={currentPath === partUrl(lang, i).replace(/\/$/, '') ? 'page' : undefined}
             >
               <span class="nav-number">{part.number}</span>
               {part.label}
@@ -42,7 +92,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
     <slot />
 
-    <dialog class="lightbox" aria-label="Vergrößerter Screenshot">
+    <dialog class="lightbox" aria-label={ui.lightbox}>
       <img alt="" />
     </dialog>
 
@@ -80,6 +130,23 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
     </script>
 
     <script>
+      // Wer die Sprache selbst wählt, soll nicht bei jedem Besuch zurückgeschickt werden.
+      for (const link of document.querySelectorAll('.site-langs a[hreflang]')) {
+        link.addEventListener('click', () => {
+          try {
+            localStorage.setItem('tutorial-lang', link.getAttribute('hreflang') ?? '');
+          } catch {
+            // Ohne localStorage merken wir uns die Wahl eben nicht.
+          }
+        });
+      }
+    </script>
+
+    <script>
+      // Die Beschriftungen kommen aus dem Layout, damit das Skript für alle Sprachen gilt.
+      const labels = document.body.dataset;
+      const copy = labels.copy ?? 'Kopieren';
+
       const blocks = document.querySelectorAll(
         '.prose pre[data-language="bash"], .prose pre[data-language="powershell"], .prose pre[data-language="prompt"]',
       );
@@ -93,7 +160,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'copy-button';
-        button.textContent = 'Kopieren';
+        button.textContent = copy;
         wrapper.append(button);
 
         let reset = 0;
@@ -101,19 +168,33 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
           const text = pre.textContent ?? '';
           try {
             await navigator.clipboard.writeText(text.trim());
-            button.textContent = 'Kopiert';
+            button.textContent = labels.copied ?? 'Kopiert';
           } catch {
-            button.textContent = 'Nicht möglich';
+            button.textContent = labels.copyFailed ?? 'Nicht möglich';
           }
           clearTimeout(reset);
-          reset = setTimeout(() => (button.textContent = 'Kopieren'), 2000);
+          reset = setTimeout(() => (button.textContent = copy), 2000);
         });
       }
     </script>
 
     <footer class="site-footer">
-      <span>Git &amp; Vercel – vom ersten Commit zum Live-Deployment</span>
-      <a href="https://github.com/tendicon-tech/git-vercel-tutorial">Quellcode auf GitHub</a>
+      <span>{ui.footer}</span>
+      <a class="footer-source" href={repositoryUrl}>{ui.source}</a>
+      <nav class="site-langs" aria-label={ui.langLabel}>
+        {
+          languages.map((other) => (
+            <a
+              href={alternates[other]}
+              hreflang={other}
+              lang={other}
+              aria-current={other === lang ? 'true' : undefined}
+            >
+              <abbr title={sites[other].name}>{other.toUpperCase()}</abbr>
+            </a>
+          ))
+        }
+      </nav>
     </footer>
   </body>
 </html>

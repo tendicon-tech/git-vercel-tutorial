@@ -1,4 +1,10 @@
-const STRONG_CALLOUTS = /^(Achtung|Häufiger Fehler|Keine Panik)/;
+const STRONG_CALLOUTS = {
+  de: /^(Achtung|Häufiger Fehler|Keine Panik)/,
+  // Smartypants macht aus ' ein typografisches ’ – beide Schreibweisen zulassen.
+  en: /^(Careful|Common mistake|Don['\u2019]t panic)/,
+};
+
+const ZOOM_LABEL = { de: 'Screenshot vergrößern', en: 'Enlarge screenshot' };
 
 function textOf(node) {
   if (node.type === 'text') return node.value;
@@ -16,7 +22,7 @@ function isNavParagraph(node) {
   return children.length > 0 && children.every((c) => isElement(c, 'a'));
 }
 
-function transform(node) {
+function transform(node, lang) {
   if (!node.children) return;
 
   node.children = node.children.map((child) => {
@@ -25,13 +31,13 @@ function transform(node) {
       return {
         type: 'element',
         tagName: 'button',
-        properties: { type: 'button', className: ['zoom'], ariaLabel: 'Screenshot vergrößern' },
+        properties: { type: 'button', className: ['zoom'], ariaLabel: ZOOM_LABEL[lang] },
         children: [child],
       };
     }
 
     if (isElement(child, 'table')) {
-      transform(child);
+      transform(child, lang);
       return {
         type: 'element',
         tagName: 'div',
@@ -41,17 +47,20 @@ function transform(node) {
     }
 
     if (isElement(child, 'blockquote')) {
-      const strong = STRONG_CALLOUTS.test(textOf(child).trim());
+      const strong = STRONG_CALLOUTS[lang].test(textOf(child).trim());
       child.properties.className = strong ? ['callout', 'callout-strong'] : ['callout'];
     }
 
-    transform(child);
+    transform(child, lang);
     return child;
   });
 }
 
 export default function rehypeTutorial() {
-  return (tree) => {
+  return (tree, file) => {
+    // Die Sprache steckt im Ordnernamen der Markdown-Datei.
+    const lang = /[/\\]en[/\\][^/\\]+$/.test(file?.path ?? '') ? 'en' : 'de';
+
     // Den Seitentitel rendert das Layout selbst.
     const h1Index = tree.children.findIndex((c) => isElement(c, 'h1'));
     if (h1Index !== -1) tree.children.splice(h1Index, 1);
@@ -63,6 +72,6 @@ export default function rehypeTutorial() {
       tree.children.splice(tree.children.indexOf(last), 1);
     }
 
-    transform(tree);
+    transform(tree, lang);
   };
 }

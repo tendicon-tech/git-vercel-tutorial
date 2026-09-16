@@ -1,0 +1,15 @@
+---
+import PartPage from '../../components/PartPage.astro';
+import { sites } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return sites.en.parts.map((part, index) => ({
+    params: { slug: part.slug },
+    props: { index },
+  }));
+}
+
+const { index } = Astro.props;
+---
+
+<PartPage lang="en" index={index} />
