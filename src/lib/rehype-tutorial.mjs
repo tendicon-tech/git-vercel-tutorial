@@ -20,6 +20,16 @@ function transform(node) {
   if (!node.children) return;
 
   node.children = node.children.map((child) => {
+    // Screenshots lassen sich per Klick vergrößern.
+    if (isElement(child, 'img')) {
+      return {
+        type: 'element',
+        tagName: 'button',
+        properties: { type: 'button', className: ['zoom'], ariaLabel: 'Screenshot vergrößern' },
+        children: [child],
+      };
+    }
+
     if (isElement(child, 'table')) {
       transform(child);
       return {

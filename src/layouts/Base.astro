@@ -42,6 +42,29 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '');
 
     <slot />
 
+    <dialog class="lightbox" aria-label="Vergrößerter Screenshot">
+      <img alt="" />
+    </dialog>
+
+    <script>
+      const lightbox = document.querySelector('dialog.lightbox');
+      const lightboxImage = lightbox?.querySelector('img');
+
+      if (lightbox instanceof HTMLDialogElement && lightboxImage instanceof HTMLImageElement) {
+        for (const zoom of document.querySelectorAll('.prose button.zoom')) {
+          zoom.addEventListener('click', () => {
+            const image = zoom.querySelector('img');
+            if (!(image instanceof HTMLImageElement)) return;
+            lightboxImage.src = image.src;
+            lightboxImage.alt = image.alt;
+            lightbox.showModal();
+          });
+        }
+
+        lightbox.addEventListener('click', () => lightbox.close());
+      }
+    </script>
+
     <script>
       const blocks = document.querySelectorAll(
         '.prose pre[data-language="bash"], .prose pre[data-language="powershell"]',
