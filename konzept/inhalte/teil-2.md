@@ -600,9 +600,13 @@ Weil VS Code bereits mit deinem GitHub-Account verbunden ist ([Teil 1, Abschnitt
 1. Wechsle auf `main`, indem du unten links in der Statusleiste auf den Branchnamen klickst und `main` auswählst.
 2. Öffne die **Source Control**-Ansicht und klicke auf **Publish Branch**.
 3. VS Code fragt, wie das Repository heißen und ob es öffentlich sein soll. Lass den Namen `git-uebung` stehen und wähle **Publish to GitHub private repository** oder **Publish to GitHub public repository** – für die Übung ist beides in Ordnung.
+
+![VS Code mit dem Button „Publish Branch" und der Auswahl zwischen privatem und öffentlichem Repository](/images/teil-2/08-vscode-publish-branch.png)
 4. VS Code legt das Repository auf GitHub an und lädt `main` hoch. Unten rechts erscheint eine Meldung mit dem Button **Open on GitHub**.
 
 Klicke auf **Open on GitHub**. Du siehst jetzt deine Datei `notizen.txt` und unter **Commits** deine Versionsgeschichte.
+
+![Repository git-uebung auf GitHub mit der Datei notizen.txt und drei Commits](/images/teil-2/09-github-repository.png)
 
 > **Was ist im Hintergrund passiert?** VS Code hat das Repository auf GitHub erstellt, es als Remote mit dem Namen `origin` eingetragen und den Branch hochgeladen. Im Terminal hätte das so ausgesehen: `git remote add origin https://github.com/dein-name/git-uebung.git` und `git push -u origin main`.
 
@@ -616,6 +620,8 @@ Auch unser Testsystem laden wir zu GitHub hoch:
 Da das Repository jetzt schon existiert, fragt VS Code nicht erneut, sondern lädt den Branch direkt hoch. Im Terminal ginge das mit `git push -u origin staging`.
 
 Auf GitHub kannst du jetzt über das Branch-Menü (dort steht `main`) zwischen den Branches wechseln.
+
+![Branch-Menü auf GitHub mit den Branches main und staging](/images/teil-2/10-github-branches.png)
 
 ### Lokale Branches und Remote-Branches
 

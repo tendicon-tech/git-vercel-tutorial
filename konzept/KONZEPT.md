@@ -30,7 +30,7 @@ Nach dem Tutorial können Leser:
 
 ## 4. Technischer Aufbau der Webseite
 
-Bewusst **oldschool und basic**: reines Astro, kein Theme, keine UI-Bibliothek, kein Client-JavaScript.
+Bewusst **oldschool und basic**: reines Astro, kein Theme, keine UI-Bibliothek. JavaScript nur für zwei Kleinigkeiten: die Kopier-Buttons an den Befehlen und das Vergrößern der Screenshots.
 
 | Bereich | Technologie |
 |---|---|
@@ -71,13 +71,13 @@ git-vercel-tutorial/
 
 ### Wiederkehrende Elemente auf jeder Tutorial-Seite
 
-Alles rein statisch – **keine interaktiven Elemente** (kein Kopier-Button, keine Tabs, kein Quiz, kein gespeicherter Fortschritt).
+Zurückhaltend gestaltet – keine Tabs, kein Quiz, kein gespeicherter Fortschritt.
 
 - **Ziel der Lektion** (1–2 Sätze)
 - **Voraussetzungen** (Link auf vorherige Lektion)
-- **Code-Blöcke** mit Syntax-Hervorhebung
+- **Code-Blöcke** mit Syntax-Hervorhebung und Kopier-Button (ein Befehl pro Block)
 - **Hinweise** als einfach gestaltete Absätze: Tipp, Achtung, Häufiger Fehler
-- **Screenshots** zu jedem wichtigen Schritt, mit kurzer Bildunterschrift
+- **Screenshots** zu jedem wichtigen Schritt, per Klick vergrößerbar
 - **Zusammenfassung „Das solltest du jetzt haben"** als einfache Aufzählung am Ende
 - **Weiter/Zurück-Links**
 
@@ -373,11 +373,9 @@ Die Bilder werden erst in die Inhalte eingefügt, wenn die Datei unter `public/i
 
 | Datei | Zeigt |
 |---|---|
-| `teil-2/08-vscode-publish-to-github.png` | Auswahl „Publish to GitHub private repository" / „Publish to GitHub public repository" |
-| `teil-2/09-github-branches.png` | Branch-Menü auf GitHub mit `main` und `staging` |
-| `teil-2/10-github-datei-bearbeiten.png` | GitHub-Editor mit bearbeiteter `kontakt.txt` auf `staging` |
-| `teil-2/11-vscode-sync.png` | VS-Code-Statusleiste mit Branchname und Sync-Anzeige |
-| `teil-2/12-vscode-konflikt.png` | Merge-Konflikt in VS Code mit „Accept Current Change" usw. |
+| `teil-2/11-github-datei-bearbeiten.png` | GitHub-Editor mit bearbeiteter `kontakt.txt` auf `staging` |
+| `teil-2/12-vscode-sync.png` | VS-Code-Statusleiste mit Branchname und Sync-Anzeige |
+| `teil-2/13-vscode-konflikt.png` | Merge-Konflikt in VS Code mit „Accept Current Change" usw. |
 
 ### Teil 3
 
